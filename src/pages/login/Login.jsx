@@ -7,28 +7,30 @@ export default function Login(props) {
   const goToLanding= () => history.push("/");
 
   return (
-    <div>
-      <div className="title">
-        <div>
-          <h1 className="iSeeYa">iSeeYa</h1>
+    <div className={`${styles.login} flex_center`}>
+      <div className={styles.login_box}>
+        <div className={`flex_space_between`}>
+          <div>
+            <h1 className="iSeeYa">iSeeYa</h1>
+          </div>
+          <div>
+            <button className="back_button" onClick={goToLanding}>
+              <i className="fas fa-arrow-circle-left"></i>
+            </button>
+          </div>
         </div>
-        <div>
-          <button className="back_button" onClick={goToLanding}>
-            <i class="fas fa-arrow-circle-left"></i>
-          </button>
-        </div>
+        <form>
+          <div>
+            <input type="text" name="username" placeholder="Username" required/>
+          </div>
+          <div>
+            <input type="password" name="password" placeholder="Password" required/>
+          </div>
+          <div>
+            <input type="submit" value="Login"/>
+          </div>
+        </form>
       </div>
-      <form>
-        <div>
-          <input type="text" name="username" placeholder="Username" required/>
-        </div>
-        <div>
-          <input type="password" name="password" placeholder="Password" required/>
-        </div>
-        <div>
-          <input type="submit" value="Login"/>
-        </div>
-      </form>
     </div>
   );
 }

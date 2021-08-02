@@ -1,8 +1,21 @@
-.App {
+.app {
+  display: flex;
+  flex-direction: column;
   margin: 0;  
-  background-color: grey;
-  height: 100%;
+  background-color: rgb(211, 211, 211);
+  height: 100vh;
   overflow:auto;
 }
 
+.nav > ul > li {
+  display: inline;
+  border: 1px solid grey;
+  padding: .25rem 1rem;
+  margin-left: .25rem;
+}
 
+.app_main {
+  flex: 1;
+  margin: 1rem;
+  background-color: rgb(241, 243, 246);
+}

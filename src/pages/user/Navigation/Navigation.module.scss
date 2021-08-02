@@ -1,0 +1,35 @@
+.navigation{
+  ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+  }
+  
+  li {
+    float: left;
+    
+    a, 
+    span{
+      display: block;
+      color: white;
+      text-align: center;
+      font-weight: bold;
+      padding: 14px 16px;
+      text-decoration: none;
+    }
+  
+    a:hover:not(.active) {
+      background-color: #111;
+    }
+  }
+  
+  .active {
+    background-color: #04AA6D;
+  }
+}
+
+.greeting {
+  background-color: rgb(12, 113, 196);
+}
