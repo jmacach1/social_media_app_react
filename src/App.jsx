@@ -1,7 +1,7 @@
 import React, { Fragment } from "react";
 import styles from './App.module.scss';
 import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
-import InitialLogin from './pages/initialLogin/InitialLogin';
+import Landing from './pages/Landing/Landing';
 import Login from './pages/login/Login';
 import SignUp from './pages/signup/SignUp';
 
@@ -22,7 +22,7 @@ export default function App() {
         </header>
         <main>
           <Switch>
-            <Route path="/" exact component={InitialLogin} />
+            <Route path="/" exact component={Landing} />
             <Route path="/signup"  component={SignUp} />
             <Route path="/login"  component={Login} />
             <Route path="/about/:name"  component={About} />
@@ -36,7 +36,6 @@ export default function App() {
 }
 
 const About = ({match:{params:{name}}}) => (
-  // props.match.params.name
   <Fragment>
     <h1>About {name}</h1>
   </Fragment>
