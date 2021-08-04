@@ -2,18 +2,22 @@ import React from "react";
 import styles from './Navigation.module.scss';
 import { Link } from "react-router-dom";
 
+const HOME = "home";
+const PROFILE = "profile";
+const FRIENDS = "friends";
+const SETTINGS = "settings";
+const MAPS = "maps";
+
 export default function Navigation() {
-  const ISEEYA = "iseeya";
   return (
     <div className={styles.navigation}>
       <nav>
         <ul>
-          <li className={styles.greeting}><span>Hello, User_1</span></li>
-          <li><Link to="/home">Home</Link></li>
-          <li><Link to="/home/">Profile</Link></li>
-          <li><Link to="/home">Friends</Link></li>
-          <li><Link to="/home">Settings</Link></li>
-          <li><Link to="/home">Maps</Link></li>
+          <li className={styles.greeting}><Link to={HOME}>Hello, User_1</Link></li>
+          <li><Link to={PROFILE}>{PROFILE}</Link></li>
+          <li><Link to={FRIENDS}>{FRIENDS}</Link></li>
+          <li><Link to={SETTINGS}>{SETTINGS}</Link></li>
+          <li><Link to={MAPS}>{MAPS}</Link></li>
         </ul>
       </nav>
     </div>

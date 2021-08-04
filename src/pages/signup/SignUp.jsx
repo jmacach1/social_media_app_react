@@ -30,7 +30,6 @@ export default function SignUp(props) {
           <input type="password" placeholder="Repeat Password" name="psw-repeat" required/>
 
           <div>
-            <input type="submit" className="cancel" value="Cancel"/>
             <input type="submit" value="Sign Up"/>
           </div>
         </form>

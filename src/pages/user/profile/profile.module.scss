@@ -1,0 +1,27 @@
+.profile {
+  height: 100%;
+}
+
+.profile_card {
+  padding: 2rem;
+  max-width: 600px;
+  background-color: rgb(119, 191, 250);
+
+  form {
+    div {
+      margin-bottom: 1rem;
+    }
+  }
+}
+
+.editable {
+  
+}
+
+.read_only {
+  border-bottom: 1px solid black;
+  input {
+    border: none;
+    background-color: transparent;
+  }
+}
