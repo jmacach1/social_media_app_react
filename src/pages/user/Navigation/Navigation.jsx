@@ -1,23 +1,54 @@
 import React from "react";
 import styles from './Navigation.module.scss';
-import { Link } from "react-router-dom";
+import { useRouteMatch, Link } from "react-router-dom";
 
-const HOME = "home";
-const PROFILE = "profile";
-const FRIENDS = "friends";
-const SETTINGS = "settings";
-const MAPS = "maps";
+export const SEP = "/";
+export const PROFILE = 'Profile';
+export const FRIENDS = 'Friends';
+export const SETTINGS = 'Settings';
+export const MAPS = 'Maps';
 
 export default function Navigation() {
+  let { url } = useRouteMatch();
+  const URL_HOME = `${url}`
+  const URL_PROFILE = `${url}${SEP}${PROFILE}`;
+  const URL_FRIENDS = `${url}${SEP}${FRIENDS}`;
+  const URL_SETTINGS = `${url}${SEP}${SETTINGS}`;
+  const URL_MAPS = `${url}${SEP}${MAPS}`;
+
   return (
     <div className={styles.navigation}>
       <nav>
         <ul>
-          <li className={styles.greeting}><Link to={HOME}>Hello, User_1</Link></li>
-          <li><Link to={PROFILE}>{PROFILE}</Link></li>
-          <li><Link to={FRIENDS}>{FRIENDS}</Link></li>
-          <li><Link to={SETTINGS}>{SETTINGS}</Link></li>
-          <li><Link to={MAPS}>{MAPS}</Link></li>
+          <li className={styles.greeting}>
+            <Link to={URL_HOME}>
+              Hello, User_1
+            </Link>
+          </li>
+
+          <li>
+            <Link to={URL_PROFILE}>
+              {PROFILE}
+            </Link>
+          </li>
+
+          <li>
+            <Link to={URL_FRIENDS}>
+              {FRIENDS}
+            </Link>
+          </li>
+
+          <li>
+            <Link to={URL_SETTINGS}>
+              {SETTINGS}
+            </Link>
+          </li>
+
+          <li>
+            <Link to={URL_MAPS}>
+              {MAPS}
+            </Link>
+          </li>
         </ul>
       </nav>
     </div>

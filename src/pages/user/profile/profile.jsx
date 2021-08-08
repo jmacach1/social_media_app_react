@@ -1,5 +1,5 @@
 import React, { Component} from "react";
-import styles from './profile.module.scss';
+import styles from './Profile.module.scss';
 
 const editable = styles.editable;
 const read_only = styles.read_only;
@@ -26,15 +26,15 @@ class Profile extends Component {
 
   editControls = () => {
     return this.state.editMode ? 
-      (<button onClick={this.toggleEditMode}>Edit</button>) :
-      (<input type="submit" value="Save" onClick={this.toggleEditMode}/>)
+      (<button onClick={this.toggleEditMode}>Save</button>) :
+      (<input type="submit" value="Edit" onClick={this.toggleEditMode}/>)
   }
 
   render() {
     const edit_class = this.state.editMode ? editable : read_only;
 
     return (
-      <div className={`${styles.profile} flex_center`}>
+      <div className={styles.profile}>
         <div className={styles.profile_card}>
           <form>
             <div className={edit_class}>

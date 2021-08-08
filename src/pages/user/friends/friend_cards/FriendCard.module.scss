@@ -1,0 +1,34 @@
+.friend_card {
+  display: inline-block;
+  background-color: rgb(223, 227, 235);
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
+
+  &:hover {
+    background-color: rgb(205, 213, 231);
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+    transform: scale(1.05); 
+  }
+}
+
+.card_section {
+  padding: .5rem 1rem;
+
+  p {
+    text-align: center;
+  }
+}
+
+.card_profile {
+  text-align: center;
+}
+
+.profile_pic {
+  width: 10rem;
+  height: 10rem;
+  border-radius: 50%;
+}
+
+.card_name {
+  font-weight: bold;
+}

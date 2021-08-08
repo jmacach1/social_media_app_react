@@ -1,24 +1,31 @@
 import React, { Fragment } from 'react';
 import styles from './UserPage.module.scss';
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import Navigation from 'pages/user/Navigation/Navigation';
+import Navigation, 
+  { PROFILE, FRIENDS, SETTINGS, MAPS } 
+from 'pages/user/Navigation/Navigation';
+import { useRouteMatch, Switch, Route } from "react-router-dom";
 import Home from 'pages/user/home/Home';
-import Profile from 'pages/user/profile/profile'
+import Profile from 'pages/user/profile/Profile';
+import Friends from 'pages/user/friends/Friends';
+import Maps from 'pages/user/maps/Maps';
 
 export default function UserPage(props) {
+  const { path } = useRouteMatch();
+
   return (
     <div className={styles.user_page}>
       <Navigation/>
-      <Router>
+      <div className={styles.user_page_main}> 
         <Switch>
-          <Route path="/iseeya/" exact component={Home} />
-          <Route path="/iseeya/profile" exact component={Profile} />
-          {/* <Route path="/iseeya/profile" exact component={Home} />
-          <Route path="/iseeya/friends" exact component={Home} />
-          <Route path="/iseeya/settings" exact component={Home} />
-          <Route path="/iseeya/maps" exact component={Home} /> */}
+          <Route path={`${path}`} exact component={Home} />
+          <Route path={`${path}/${PROFILE}`} exact component={Profile}/ >
+          <Route path={`${path}/${FRIENDS}`} exact component={Friends}/ >
+          <Route path={`${path}/${SETTINGS}`}>
+            <h1>Settings</h1>
+          </Route>
+          <Route path={`${path}/${MAPS}`} exact component={Maps}/ >
         </Switch>
-      </Router>
+      </div>
     </div>
   );
 }

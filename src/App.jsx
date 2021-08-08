@@ -4,7 +4,8 @@ import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
 import Landing from './pages/Landing/Landing';
 import Login from './pages/login/Login';
 import SignUp from './pages/signup/SignUp';
-import UserPage from 'pages/user/UserPage'
+import UserPage from 'pages/user/UserPage';
+
 
 export default function App() {
   const name = 'Jerald Macachor';
@@ -18,7 +19,7 @@ export default function App() {
               <li><Link to={`/signup/`}>Sign Up</Link></li>
               <li><Link to="/login">Login</Link></li>
               <li><Link to={`/about/${name}`}>About</Link></li>
-              <li><Link to={`/iseeya/`}>UserPage</Link></li>
+              <li><Link to={`/logged_in`}>UserPage</Link></li>
             </ul>
           </nav>
         </header>
@@ -28,7 +29,7 @@ export default function App() {
             <Route path="/signup" component={SignUp} />
             <Route path="/login" component={Login} />
             <Route path="/about/:name" component={About} />
-            <Route path="/iseeya/" component={UserPage} />
+            <Route path="/logged_in" component={UserPage}/>
           </Switch>
         </main>
       </div>
