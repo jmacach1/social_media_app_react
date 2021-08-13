@@ -1,10 +1,28 @@
 import React from 'react';
 import styles from './Login.module.scss';
 import { useHistory } from "react-router-dom";
+import { useSelector, useDispatch } from 'react-redux';
+import { loginUser } from 'redux/login/loginSlice';
 
 export default function Login(props) {
   const history = useHistory();
-  const goToLanding= () => history.push("/");
+  const goToLanding = () => history.push("/");
+
+  const loginState = useSelector((state) => state.login);
+  if (loginState.username !== "") {
+    history.push("/logged_in")
+  }
+
+  const dispatch = useDispatch();
+  const onSubmitLogin = (e) => {
+    e.preventDefault();
+    const login_username = e.target.elements.username.value;
+    const login_password = e.target.elements.password.value;
+    dispatch(loginUser({ 
+      username: login_username, 
+      password: login_password
+    }))
+  }
 
   return (
     <div className={`${styles.login} flex_center`}>
@@ -19,12 +37,12 @@ export default function Login(props) {
             </button>
           </div>
         </div>
-        <form>
+        <form onSubmit={onSubmitLogin}>
           <div>
-            <input type="text" name="username" placeholder="Username" required/>
+            <input type="text" name="username" placeholder="Username"/>
           </div>
           <div>
-            <input type="password" name="password" placeholder="Password" required/>
+            <input type="text" name="password" placeholder="Password"/>
           </div>
           <div>
             <input type="submit" value="Login"/>

@@ -1,6 +1,7 @@
 import React from "react";
 import styles from './Navigation.module.scss';
 import { useRouteMatch, Link } from "react-router-dom";
+import { useSelector } from 'react-redux';
 
 export const SEP = "/";
 export const PROFILE = 'Profile';
@@ -10,6 +11,8 @@ export const MAPS = 'Maps';
 
 export default function Navigation() {
   let { url } = useRouteMatch();
+  const username = useSelector((state) => state.login.username) || "USER";
+
   const URL_HOME = `${url}`
   const URL_PROFILE = `${url}${SEP}${PROFILE}`;
   const URL_FRIENDS = `${url}${SEP}${FRIENDS}`;
@@ -22,7 +25,7 @@ export default function Navigation() {
         <ul>
           <li className={styles.greeting}>
             <Link to={URL_HOME}>
-              Hello, User_1
+              Hello, {username}
             </Link>
           </li>
 

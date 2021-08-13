@@ -1,0 +1,50 @@
+{
+  "username": "tmay.santos@gmail.com",
+  "first_name": "Teresa Marie",
+  "middle_name": "Lao",
+  "last_name": "Santos",
+  "friends": [
+    {
+      "id" : 123,
+      "username": "jeff.winger@greendale.edu",
+      "profile_image_link" : "",
+      "city" : "Buenos Aires",
+      "state": "",
+      "country" : "Argentina",
+      "coordinates" : [-58.3816, -34.6037]
+    },
+    {
+      "id" : 124,
+      "username": "william.dean@greendale.edu",
+      "profile_image_link" : "",
+      "city" : "Greendale",
+      "state": "Colorado",
+      "country" : "USA",
+      "coordinates" : [-58.3816, -34.6037]
+    },
+    {
+      "id" : 125,
+      "username": "brita.perry@greendale.edu",
+      "profile_image_link" : "",
+      "city" : "New York",
+      "state": "New York",
+      "country" : "USA",
+      "coordinates" : [-74.006, 40.7128]
+    }
+  ],
+  "addressess": {
+    "current_address_id": 1,
+    "placed_lived": [
+      {
+        "city" : "Havana", 
+        "country": "Cuba",
+        "coordinates" : [-82.3666, 23.1136] 
+      },
+      {
+        "city" : "Havana", 
+        "country": "Cuba",
+        "coordinates" : [-82.3666, 23.1136] 
+      }
+    ]
+  } 
+}

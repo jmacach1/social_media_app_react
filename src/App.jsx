@@ -7,7 +7,7 @@ import Landing from './pages/Landing/Landing';
 import Login from './pages/login/Login';
 import SignUp from './pages/signup/SignUp';
 import UserPage from './pages/user/UserPage';
-
+import Counter from './features/counter/Counter';
 
 export default function App() {
   const name = 'Jerald Macachor';
@@ -23,6 +23,7 @@ export default function App() {
                 <li><Link to="/login">Login</Link></li>
                 <li><Link to={`/about/${name}`}>About</Link></li>
                 <li><Link to={`/logged_in`}>UserPage</Link></li>
+                <li><Link to={`/counter`}>Counter</Link></li>
               </ul>
             </nav>
           </header>
@@ -33,6 +34,7 @@ export default function App() {
               <Route path="/login" component={Login} />
               <Route path="/about/:name" component={About} />
               <Route path="/logged_in" component={UserPage}/>
+              <Route path="/counter" component={Counter}/>
             </Switch>
           </main>
         </div>
