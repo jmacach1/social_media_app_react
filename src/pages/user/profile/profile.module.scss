@@ -17,14 +17,30 @@
   }
 }
 
-.editable {
-  
+.profile_pic_div {
+  padding: 1rem;
+  text-align: center;
+}
+
+.profile_pic {
+  width: 10rem;
+  height: 10rem;
+  border-radius: 50%;
+}
+
+.cancel_edit {
+  background-color: rgb(233, 39, 39);
 }
 
 .read_only {
-  border-bottom: 1px solid black;
+
   input {
     border: none;
     background-color: transparent;
+    display: inline-block;
+  }
+
+  label {
+    display: inline-block;
   }
 }

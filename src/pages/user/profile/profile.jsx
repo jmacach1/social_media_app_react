@@ -1,4 +1,4 @@
-import React, { Component} from "react";
+import React, { Component, Fragment} from "react";
 import styles from './Profile.module.scss';
 
 const editable = styles.editable;
@@ -26,8 +26,13 @@ class Profile extends Component {
 
   editControls = () => {
     return this.state.editMode ? 
-      (<button onClick={this.toggleEditMode}>Save</button>) :
-      (<input type="submit" value="Edit" onClick={this.toggleEditMode}/>)
+      (
+        <Fragment>
+          <button className={styles.cancel_edit} onClick={this.toggleEditMode}>Cancel Edit</button>
+          <input type="submit" value="Save" onClick={this.toggleEditMode}/>
+        </Fragment>
+      ) :
+      (<button onClick={this.toggleEditMode}>Save</button>)
   }
 
   render() {
@@ -36,6 +41,11 @@ class Profile extends Component {
     return (
       <div className={styles.profile}>
         <div className={styles.profile_card}>
+          <div className={styles.profile_pic_div}>
+            <img className={styles.profile_pic}
+              src={`${process.env.PUBLIC_URL}/img/profile_pic_placeholder.png`} 
+              alt="Profile Pic"/>
+          </div>
           <form>
             <div className={edit_class}>
               <label htmlFor="email"><b>Email / Username</b></label>

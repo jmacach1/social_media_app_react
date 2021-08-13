@@ -15,7 +15,7 @@ class FriendCard extends Component {
         <div className={`${styles.card_section} ${styles.profile_section}`}>
           <img className={styles.profile_pic}
             src={`${process.env.PUBLIC_URL}/img/profile_pic_placeholder.png`} 
-            alt="Profile Picture"
+            alt="Profile Pic"
           />
         </div>
         <div className={styles.card_section}>
