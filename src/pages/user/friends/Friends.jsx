@@ -1,4 +1,5 @@
 import React, { Component} from "react";
+import { connect } from 'react-redux';
 import styles from './Friends.module.scss';
 import FriendCard from './friend_cards/FriendCard';
 
@@ -6,7 +7,7 @@ class Friends extends Component {
   constructor(props) {
     super(props)
     this.state = {
-
+      friends : props.friends
     }
   }
 
@@ -18,7 +19,7 @@ class Friends extends Component {
         </div>
         <div className={styles.main}>
           <div className={styles.cards}>
-            <FriendCard/>
+            {this.state.friends.map(friend => <FriendCard friend={friend}/>)}
           </div>
         </div>
       </div>
@@ -26,4 +27,8 @@ class Friends extends Component {
   }
 }
 
-export default Friends;
+const mapStateToProps = state => {
+  return state.login;
+};
+
+export default connect(mapStateToProps)(Friends);

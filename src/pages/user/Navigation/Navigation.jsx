@@ -11,7 +11,7 @@ export const MAPS = 'Maps';
 
 export default function Navigation() {
   let { url } = useRouteMatch();
-  const username = useSelector((state) => state.login.username) || "USER";
+  const username = useSelector((state) => state.login.first_name) || "USER";
 
   const URL_HOME = `${url}`
   const URL_PROFILE = `${url}${SEP}${PROFILE}`;

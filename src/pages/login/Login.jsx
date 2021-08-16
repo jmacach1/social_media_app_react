@@ -10,7 +10,8 @@ export default function Login(props) {
 
   const loginState = useSelector((state) => state.login);
   if (loginState.username !== "") {
-    history.push("/logged_in")
+    console.log(`logging in ${loginState.username} .......`);
+    history.push("/logged_in");
   }
 
   const dispatch = useDispatch();

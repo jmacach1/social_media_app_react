@@ -1,4 +1,5 @@
 import React, { Component, Fragment} from "react";
+import { connect } from 'react-redux';
 import styles from './Profile.module.scss';
 
 const editable = styles.editable;
@@ -7,11 +8,12 @@ const read_only = styles.read_only;
 class Profile extends Component {
   constructor(props) {
     super(props)
+    console.log(props);
     this.state = {
       profile : {
-        email: "tmay.santos@gmail.com",
-        first_name : "Teresa Marie",
-        last_name : "Santos", 
+        email: props.username || "",
+        first_name : props.first_name || "",
+        last_name : props.last_name || "", 
       },
       editMode: false
     }
@@ -69,4 +71,8 @@ class Profile extends Component {
   }
 }
 
-export default Profile;
+const mapStateToProps = state => {
+   return state.login;
+};
+
+export default connect(mapStateToProps)(Profile);

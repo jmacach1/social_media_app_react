@@ -1,8 +1,12 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-const initialState = {
-  username: ""
-}
+
+const teresa = require('sample_data/teresa.json');
+
+// const initialState = {
+//   username: ""
+// }
+const initialState = teresa;
 
 export const loginSlice = createSlice({
   name: 'login',
@@ -12,7 +16,8 @@ export const loginSlice = createSlice({
       console.log(action.payload);
       const validUser = true;
       if (validUser) {
-        state.username = action.payload.username
+        state = Object.assign(state, teresa);
+        console.log(state);
       }
     },
     logoutUser: (state) => {
@@ -21,7 +26,6 @@ export const loginSlice = createSlice({
   },
 })
 
-// Action creators are generated for each case reducer function
 export const { loginUser } = loginSlice.actions;
 
 export default loginSlice.reducer;

@@ -5,7 +5,7 @@ class FriendCard extends Component {
   constructor(props) {
     super(props)
     this.state = {
-
+      first_name: props.friend.first_name
     }
   }
 
@@ -19,7 +19,7 @@ class FriendCard extends Component {
           />
         </div>
         <div className={styles.card_section}>
-          <p className={styles.card_name}>Jane Doe</p>
+          <p className={styles.card_name}>{this.state.first_name}</p>
           <p className={styles.card_city}>Irvine, CA</p>
         </div>
       </div>
