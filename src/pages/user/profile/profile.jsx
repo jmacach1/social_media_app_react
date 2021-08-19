@@ -14,6 +14,7 @@ class Profile extends Component {
         email: props.username || "",
         first_name : props.first_name || "",
         last_name : props.last_name || "", 
+        profile_img_src: props.profile_image_link
       },
       editMode: false
     }
@@ -34,7 +35,9 @@ class Profile extends Component {
           <input type="submit" value="Save" onClick={this.toggleEditMode}/>
         </Fragment>
       ) :
-      (<button onClick={this.toggleEditMode}>Save</button>)
+      (
+        <button onClick={this.toggleEditMode}>Edit</button>
+      )
   }
 
   render() {
@@ -45,7 +48,8 @@ class Profile extends Component {
         <div className={styles.profile_card}>
           <div className={styles.profile_pic_div}>
             <img className={styles.profile_pic}
-              src={`${process.env.PUBLIC_URL}/img/profile_pic_placeholder.png`} 
+              // src={`${process.env.PUBLIC_URL}/img/profile_pic_placeholder.png`}
+              src={this.state.profile_img_src} 
               alt="Profile Pic"/>
           </div>
           <form>

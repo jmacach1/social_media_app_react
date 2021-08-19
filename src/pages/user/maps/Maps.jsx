@@ -23,7 +23,11 @@ class Maps extends Component {
       <div className={styles.maps}>
         <div className={styles.title}>
           <h1>My Maps</h1>
-            <select id="my_maps" onChange={this.changeSelectedMap} value={this.state.current_map_index}>
+            <select 
+              id="my_maps" 
+              onChange={this.changeSelectedMap} 
+              value={this.state.current_map_index}
+            >
               {this.state.myMaps.map((myMap, index) => 
                 <option value={index}>{myMap.my_map_name}</option>
               )}

@@ -41,11 +41,11 @@ export default function Navigation() {
             </Link>
           </li>
 
-          <li>
+          {/* <li>
             <Link to={URL_SETTINGS}>
               {SETTINGS}
             </Link>
-          </li>
+          </li> */}
 
           <li>
             <Link to={URL_MAPS}>

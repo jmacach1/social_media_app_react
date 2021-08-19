@@ -3,12 +3,14 @@
   "first_name": "Teresa Marie",
   "middle_name": "Lao",
   "last_name": "Santos",
+  "profile_image_link" : "https://robohash.org/teresa",
   "friends": [
     {
       "id" : 123,
       "username": "jeff.winger@greendale.edu",
       "first_name": "Jeff",
-      "profile_image_link" : "",
+      "last_name": "Winger",
+      "profile_image_link" : "https://robohash.org/jeff",
       "city" : "Buenos Aires",
       "state": "",
       "country" : "Argentina",
@@ -16,9 +18,10 @@
     },
     {
       "id" : 124,
-      "username": "william.dean@greendale.edu",
-      "first_name": "William",
-      "profile_image_link" : "",
+      "username": "abed.nadir@abedfilms.com",
+      "first_name": "Abed",
+      "last_name": "Nadir",
+      "profile_image_link" : "https://robohash.org/abed",
       "city" : "Greendale",
       "state": "Colorado",
       "country" : "USA",
@@ -26,9 +29,9 @@
     },
     {
       "id" : 125,
-      "username": "britta.perry@greendale.edu",
+      "username": "britta.perry@britalution.net",
       "first_name": "Britta",
-      "profile_image_link" : "",
+      "profile_image_link" : "https://robohash.org/britta",
       "city" : "New York",
       "state": "New York",
       "country" : "USA",
@@ -57,30 +60,31 @@
         {
           "username": "jeff.winger@greendale.edu",
           "first_name": "Jeff",
-          "profile_image_link" : "",
+          "profile_image_link" : "https://robohash.org/jeff",
           "city" : "Buenos Aires",
           "country" : "Argentina",
           "coordinates" : [-58.3816, -34.6037]
         },
         {
-          "username": "william.dean@greendale.edu",
-          "first_name": "William",
-          "profile_image_link" : "",
+          "username": "abed.nadir@abedfilms.com",
+          "first_name": "Abed",
+          "last_name": "Nadir",
+          "profile_image_link" : "https://robohash.org/abed",
           "city" : "Greendale",
           "country" : "USA",
           "coordinates" : [-117.20163, 33.69066] 
         },
         {
-          "username": "britta.perry@greendale.edu",
+          "username": "britta.perry@britalution.net",
           "first_name": "Britta",
-          "profile_image_link" : "",
+          "profile_image_link" : "https://robohash.org/britta",
           "city" : "New York",
           "country" : "USA",
           "coordinates" : [-74.006, 40.7128]
         }
       ]
     },{ 
-      "my_map_name": "Addresses",
+      "my_map_name": "Addresses I've lived",
       "markers": [
         {
           "city" : "Havana", 

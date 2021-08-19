@@ -5,7 +5,8 @@ class FriendCard extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      first_name: props.friend.first_name
+      first_name: props.friend.first_name,
+      profile_img_src: props.friend.profile_image_link
     }
   }
 
@@ -14,7 +15,8 @@ class FriendCard extends Component {
       <div className={styles.friend_card}>
         <div className={`${styles.card_section} ${styles.profile_section}`}>
           <img className={styles.profile_pic}
-            src={`${process.env.PUBLIC_URL}/img/profile_pic_placeholder.png`} 
+            // src={`${process.env.PUBLIC_URL}/img/profile_pic_placeholder.png`} 
+            src={this.state.profile_img_src}
             alt="Profile Pic"
           />
         </div>
