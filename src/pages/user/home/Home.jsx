@@ -9,19 +9,19 @@ export default function Home(props) {
 
   return (
     <div className={styles.home}>
-      <div className={styles.title}>
-        <h1>User Home Page</h1>
-      </div>
-      <div className={styles.windows}>
-        <div>
-          <h2>Profile</h2>
-          <h3>{username}</h3>
-          <h3>{first_name}</h3>
-          <h3>{last_name}</h3>
+      <div className={styles.sections}>
+        <div className={styles.section}>
+          <h3>profile</h3>
+          <p>{username}</p>
+          <p>{first_name}</p>
+          <p>{last_name}</p>
         </div>
-        <div></div>
-        <div></div>
-        <div></div>
+        <div className={styles.section}>
+          <h3>friends</h3>
+        </div>
+        <div className={styles.section}>
+          <h3>Maps</h3>
+        </div>
       </div>
     </div>
   );

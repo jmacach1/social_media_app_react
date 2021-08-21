@@ -6,13 +6,13 @@ import {
   Geography,
   Marker
 } from "react-simple-maps";
+import styles from './ISeeYaMaps.module.scss';
 
 const geoUrl =
   "https://raw.githubusercontent.com/zcreativelabs/react-simple-maps/master/topojson-maps/world-110m.json";
 
 
 const markerOffset = -20; 
-const href_example = "https://www.w3schools.com/howto/img_avatar.png";
 
 const ISeeYaMarker = (props) => {
   const {first_name, profile_image_link, coordinates } = props.data;
@@ -24,7 +24,7 @@ const ISeeYaMarker = (props) => {
           <circle r={profile_pic_radius} cx="0" cy="0"/>
         </clipPath>
         <image
-          className="image_marker"
+          className={styles.image_marker}
           y={-profile_pic_radius}
           x={-profile_pic_radius}
           href={profile_image_link}
@@ -84,8 +84,12 @@ const MapChart = ({markers}) => {
 const ISeeYaMaps = (props) => {
   return (
     <div>
-      <h1>{props.my_maps.my_map_name}</h1>
-      <MapChart markers={props.my_maps.markers}/>
+      <div>
+        <h1>{props.my_maps.my_map_name}</h1>
+      </div>
+      <div className={styles.my_mapchart}>
+        <MapChart markers={props.my_maps.markers}/>
+      </div>
     </div>
   )
 };

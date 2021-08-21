@@ -1,20 +1,20 @@
 .home {
+  height: 100%;
   padding: 1rem;
   background-color: cadetblue;
-}
-.title {
-  color: white;
-}
-.windows {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-wrap: wrap;
-
-  div {
-    min-width: 325px;
-    min-height: 325px;
-    background-color: rgb(219, 227, 235);
-    margin: 1rem;
+  
+  .sections {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+  
+    .section {
+      flex-grow: 1;
+      margin: 1rem;
+      padding: 1rem;
+      border-radius: 16px;
+      min-width: 325px;
+      background-color: rgb(219, 227, 235);
+    }
   }
 }
