@@ -1,9 +1,28 @@
-.signup {
-  height: 100%;
-}
-
 .signup_box {
   padding: 2rem;
   max-width: 600px;
   background-color: rgb(119, 191, 250);
+}
+
+.signup  {
+  height: 100%;
+  background-color: rgb(216, 233, 247);
+}
+
+.controls {
+  text-align: center;
+}
+
+.message_box {
+  padding: 1rem;
+  margin-bottom: 1rem;
+  border-radius: 16px;
+}
+
+.success {
+  background: rgb(175, 216, 175);
+}
+
+.failure {
+  background-color: rgb(255, 198, 198);
 }
