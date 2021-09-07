@@ -28,7 +28,10 @@ class Friends extends Component {
 }
 
 const mapStateToProps = state => {
-  return state.login;
+  if (state.login.iseeya_user) {
+    return state.login.iseeya_user.iseeya_maps.filter(my_map => my_map.name === "Friends");
+  }
+  return [];
 };
 
 export default connect(mapStateToProps)(Friends);

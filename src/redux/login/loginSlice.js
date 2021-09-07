@@ -1,24 +1,20 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 
-const teresa = require('sample_data/teresa.json');
-
+const annie = require('sample_data/annie.json');
+const initialState = {
+  iseeya_user : annie
+}
 // const initialState = {
-//   username: ""
+//   iseeya_user: null
 // }
-const initialState = teresa;
 
 export const loginSlice = createSlice({
-  name: 'login',
-  initialState: initialState,
+  name : 'login',
+  initialState,
   reducers: {
     loginUser: (state, action) => {
-      console.log(action.payload);
-      const validUser = true;
-      if (validUser) {
-        state = Object.assign(state, teresa);
-        console.log(state);
-      }
+      state.iseeya_user = action.payload;
     },
     logoutUser: (state) => {
       state = initialState
@@ -26,6 +22,5 @@ export const loginSlice = createSlice({
   },
 })
 
-export const { loginUser } = loginSlice.actions;
-
 export default loginSlice.reducer;
+export const { loginUser, logoutUser } = loginSlice.actions;

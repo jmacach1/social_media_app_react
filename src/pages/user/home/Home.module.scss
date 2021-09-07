@@ -1,7 +1,7 @@
 .home {
   height: 100%;
   padding: 1rem;
-  background-color: cadetblue;
+  background-color: rgba(95, 158, 160, 0.7);
   
   .sections {
     display: flex;
@@ -14,7 +14,7 @@
       padding: 1rem;
       border-radius: 16px;
       min-width: 325px;
-      background-color: rgb(219, 227, 235);
+      background-color: rgba(219, 227, 235, 0.95);
     }
   }
 }

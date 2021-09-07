@@ -1,0 +1,152 @@
+{
+    "pk": 12,
+    "django_auth_user": {
+        "id": 13,
+        "password": "pbkdf2_sha256$260000$ewpR3O1tKUecsvHtAH4tl2$WknENYBX5PAlrKUicBiXqu0IvXCvII1ooAEbDVJWqls=",
+        "last_login": "2021-09-06T19:31:56.770495Z",
+        "is_superuser": false,
+        "username": "annie.edison@greendale.edu",
+        "first_name": "",
+        "last_name": "",
+        "email": "annie.edison@greendale.edu",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2021-09-05T06:49:36.274398Z",
+        "groups": [],
+        "user_permissions": []
+    },
+    "profile": {
+        "pk": 5,
+        "first_name": "Annie",
+        "middle_name": "",
+        "last_name": "Edison",
+        "profile_image_link": "https://robohash.org/annie.edison",
+        "label": "Annie Edison",
+        "email": "annie.edison@greendale.edu"
+    },
+    "iseeya_maps": [
+        {
+            "pk": 5,
+            "type": "address",
+            "name": "Places I've Lived",
+            "owner": 12,
+            "markers": [
+                {
+                    "pk": 3,
+                    "type": "address",
+                    "location": {
+                        "id": 3,
+                        "city": "Buenos Aires",
+                        "stateOrProvince": "",
+                        "country": "Argentina",
+                        "lat": -34.6037,
+                        "lon": -58.3816
+                    },
+                    "profile": null
+                },
+                {
+                    "pk": 4,
+                    "type": "address",
+                    "location": {
+                        "id": 2,
+                        "city": "New York",
+                        "stateOrProvince": "New York",
+                        "country": "United States",
+                        "lat": 40.7129,
+                        "lon": -74.006
+                    },
+                    "profile": null
+                },
+                {
+                    "pk": 5,
+                    "type": "address",
+                    "location": {
+                        "id": 5,
+                        "city": "London",
+                        "stateOrProvince": "England",
+                        "country": "United Kingdom",
+                        "lat": 51.5074,
+                        "lon": 0.1278
+                    },
+                    "profile": null
+                },
+                {
+                    "pk": 6,
+                    "type": "address",
+                    "location": {
+                        "id": 1,
+                        "city": "Havana",
+                        "stateOrProvince": "",
+                        "country": "Cuba",
+                        "lat": 23.1136,
+                        "lon": -82.3666
+                    },
+                    "profile": null
+                },
+                {
+                    "pk": 7,
+                    "type": "address",
+                    "location": {
+                        "id": 6,
+                        "city": "Manila",
+                        "stateOrProvince": "NCR",
+                        "country": "Philippines",
+                        "lat": 14.5995,
+                        "lon": 120.9842
+                    },
+                    "profile": null
+                }
+            ]
+        },
+        {
+            "pk": 6,
+            "type": "profile",
+            "name": "Friends",
+            "owner": 12,
+            "markers": [
+                {
+                    "pk": 3,
+                    "type": "profile",
+                    "location": {
+                        "id": 3,
+                        "city": "Buenos Aires",
+                        "stateOrProvince": "",
+                        "country": "Argentina",
+                        "lat": -34.6037,
+                        "lon": -58.3816
+                    },
+                    "profile": {
+                        "pk": 8,
+                        "first_name": "Benjamin",
+                        "middle_name": "",
+                        "last_name": "Chang",
+                        "profile_image_link": "https://robohash.org/benjamin.chang",
+                        "label": "Benjamin Chang",
+                        "email": "benjamin.chang@greendale.com"
+                    }
+                },
+                {
+                    "pk": 3,
+                    "type": "profile",
+                    "location": {
+                        "id": 3,
+                        "city": "New York",
+                        "stateOrProvince": "New York",
+                        "country": "United States",
+                        "lat": 40.7129,
+                        "lon": -74.006
+                    },
+                    "profile": {
+                        "pk": 8,
+                        "first_name": "Jeff",
+                        "middle_name": "",
+                        "last_name": "Winger",
+                        "profile_image_link": "https://robohash.org/jeff.winger",
+                        "label": "Jeff Winger",
+                        "email": "jeff.winger@greendale.com"
+                    }
+                }
+            ]
+        }
+    ]
+}

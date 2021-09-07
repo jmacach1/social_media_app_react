@@ -11,45 +11,50 @@ import styles from './ISeeYaMaps.module.scss';
 const geoUrl =
   "https://raw.githubusercontent.com/zcreativelabs/react-simple-maps/master/topojson-maps/world-110m.json";
 
-
-const markerOffset = -20; 
+const MARKER_OFF_SET = -20; 
+const PROFILE_MARKER_RADIUS = 18;
+const PROFILE_PIC_DIAMTER = PROFILE_MARKER_RADIUS * 2;
 
 const ISeeYaMarker = (props) => {
-  const {first_name, profile_image_link, coordinates } = props.data;
-  if (profile_image_link) {
-    const profile_pic_radius = 18;
+
+  const { location, profile } = props.data;
+  const { city, country, lon, lat } = location;
+  const coordinates = [lon, lat];
+  
+  if (profile) {
+    const { pk, first_name, last_name, profile_image_link } = profile;
     return (
-      <Marker key={first_name} coordinates={coordinates}>
+      <Marker key={pk} coordinates={coordinates}>
         <clipPath id="clipCircle">
-          <circle r={profile_pic_radius} cx="0" cy="0"/>
+          <circle r={PROFILE_MARKER_RADIUS} cx="0" cy="0"/>
         </clipPath>
         <image
           className={styles.image_marker}
-          y={-profile_pic_radius}
-          x={-profile_pic_radius}
+          y={-PROFILE_MARKER_RADIUS}
+          x={-PROFILE_MARKER_RADIUS}
           href={profile_image_link}
           preserveAspectRatio="none"
-          width={profile_pic_radius * 2} height={profile_pic_radius * 2}
+          width={PROFILE_PIC_DIAMTER} 
+          height={PROFILE_PIC_DIAMTER}
           clip-path="url(#clipCircle)"
         />
         <text
           textAnchor="middle"
-          y={markerOffset}
+          y={MARKER_OFF_SET}
         >
-          {first_name}
+          {`${first_name} ${last_name[0]}.`}
         </text>
       </Marker>
-    )
+    );
   }
 
-  const {city, country} = props.data; 
   const cityCountryKey = `${city}${country}`;
   return (
     <Marker key={cityCountryKey} coordinates={coordinates}>
       <circle r={6} fill="#F00" stroke="#fff" strokeWidth={2} />
       <text
         textAnchor="middle"
-        y={markerOffset}
+        y={MARKER_OFF_SET}
         style={{ fontFamily: "system-ui", fill: "#5D5A6D" }}
       >
         {`${city}, ${country}`}
@@ -61,7 +66,7 @@ const ISeeYaMarker = (props) => {
 const MapChart = ({markers}) => {
   return (
     <ComposableMap>
-      <ZoomableGroup zoom={1}>
+      {/* <ZoomableGroup zoom={1}> */}
       <Geographies geography={geoUrl}>
         {({ geographies }) =>
           geographies
@@ -75,20 +80,20 @@ const MapChart = ({markers}) => {
             ))
         }
       </Geographies>
-        {markers.map(markerData => <ISeeYaMarker data={markerData} />)}
-      </ZoomableGroup>
+        {markers.map(marker => <ISeeYaMarker data={marker} />)}
+      {/* </ZoomableGroup> */}
     </ComposableMap>
   );
 };
 
-const ISeeYaMaps = (props) => {
+const ISeeYaMaps = ({ myMap }) => {
   return (
     <div>
       <div>
-        <h1>{props.my_maps.my_map_name}</h1>
+        <h1>{myMap.name}</h1>
       </div>
       <div className={styles.my_mapchart}>
-        <MapChart markers={props.my_maps.markers}/>
+        <MapChart markers={myMap.markers}/>
       </div>
     </div>
   )

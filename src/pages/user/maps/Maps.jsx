@@ -7,40 +7,51 @@ class Maps extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      myMaps: props.myMaps,
-      current_map_index: 0
+      selectedMapIndex: 0
     }
   }
 
   changeSelectedMap = (e) => {
-    this.setState({
-      current_map_index: e.target.value
-    });
+    const selectedMapIndex = e.target.value;
+    this.setState({ selectedMapIndex });
   }
 
   render() {
-    return (
-      <div className={styles.maps}>
-        <div className={styles.title}>
-          <h1>My Maps</h1>
-            <select 
-              id="my_maps" 
-              onChange={this.changeSelectedMap} 
-              value={this.state.current_map_index}
-            >
-              {this.state.myMaps.map((myMap, index) => 
-                <option value={index}>{myMap.my_map_name}</option>
-              )}
-            </select>
-          <ISeeYaMaps my_maps={this.state.myMaps[this.state.current_map_index]}/>
+    if (this.props.iseeya_maps) {
+      return (
+        <div className={styles.maps}>
+          <div className={styles.title}>
+            <h1>My Maps</h1>
+              <select 
+                id="my_maps" 
+                onChange={this.changeSelectedMap} 
+                value={this.state.selectedMapIndex}
+              >
+                {this.props.iseeya_maps.map((myMap, index) => 
+                  <option value={index}>{myMap.name}</option>
+                )}
+              </select>
+            <ISeeYaMaps myMap={this.props.iseeya_maps[this.state.selectedMapIndex]}/>
+          </div>
         </div>
+      )
+    }
+    return (
+      <div>
+        <h1>No User No Maps</h1>
       </div>
     )
   }
 }
 
 const mapStateToProps = state => {
-  return state.login;
+  const mapState = {
+    iseeya_maps : []
+  }
+  if (state.login.iseeya_user) {
+    mapState.iseeya_maps = state.login.iseeya_user.iseeya_maps 
+  }
+  return mapState;
 };
 
 export default connect(mapStateToProps)(Maps);

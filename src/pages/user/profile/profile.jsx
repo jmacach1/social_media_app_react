@@ -10,7 +10,7 @@ class Profile extends Component {
     super(props)
     this.state = {
       profile : {
-        email: props.username || "",
+        email: props.email || "",
         first_name : props.first_name || "",
         last_name : props.last_name || "", 
         profile_img_src: props.profile_image_link || ""
@@ -75,7 +75,15 @@ class Profile extends Component {
 }
 
 const mapStateToProps = state => {
-   return state.login;
+  if (state.login.iseeya_user && state.login.iseeya_user.profile) {
+    return state.login.iseeya_user.profile;
+  }
+  return {
+    email: "email@address.com",
+    first_name :  "First",
+    last_name : "Last", 
+    profile_img_src: "https://robohash.org/default"
+  }
 };
 
 export default connect(mapStateToProps)(Profile);

@@ -28,14 +28,16 @@ export default function App() {
             </nav>
           </header>
           <main className={styles.app_main}>
-            <Switch>
-              <Route path="/" exact component={Landing} />
-              <Route path="/signup" component={SignUp} />
-              <Route path="/login" component={Login} />
-              <Route path="/about/:name" component={About} />
-              <Route path="/logged_in" component={UserPage}/>
-              <Route path="/counter" component={Counter}/>
-            </Switch>
+            <div className={styles.color_movement}>            
+              <Switch>
+                <Route path="/" exact component={Landing} />
+                <Route path="/signup" component={SignUp} />
+                <Route path="/login" component={Login} />
+                <Route path="/about/:name" component={About} />
+                <Route path="/logged_in" component={UserPage}/>
+                <Route path="/counter" component={Counter}/>
+              </Switch>
+            </div>
           </main>
         </div>
       </Router>

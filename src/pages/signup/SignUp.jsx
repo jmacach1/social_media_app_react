@@ -7,6 +7,8 @@ import BackButton from 'buttons/BackButton';
 
 const SIGNUP = {
   SIGNUP: "Sign Up",
+  FIRST_NAME : "first_name",
+  LAST_NAME : "last_name",
   USERNAME : "username",
   EMAIL : "email",
   PASSWORD1 : "password1",
@@ -16,6 +18,9 @@ const SIGNUP = {
 const LOCALHOST = "http://127.0.0.1:8000/";
 const REGISTRATION_ENDPOINT = "rest-auth/registration/";
 const REGISTRATION_URL = LOCALHOST + REGISTRATION_ENDPOINT;
+const API = "api/";
+const ISEEYA_USER = "iseeya_user"
+const CREATE_ISEEYA_USER_URL = LOCALHOST + API + ISEEYA_USER;
 
 const REGISTRATION_SUCCESS = "User was created";
 const REGISTRATION_FAILURE = "User not created";
@@ -49,16 +54,15 @@ class SignUp extends Component {
     event.preventDefault();
     this.setState({ submitting : true });
 
-    const new_registration_user = {
-      email : event.target.elements[SIGNUP.EMAIL].value,
-      username : event.target.elements[SIGNUP.EMAIL].value,
-      password1 : event.target.elements[SIGNUP.PASSWORD1].value,
-      password2 : event.target.elements[SIGNUP.PASSWORD2].value
-    }
+    const first_name = event.target.elements[SIGNUP.FIRST_NAME].value;
+    const last_name = event.target.elements[SIGNUP.LAST_NAME].value;
+    const email = event.target.elements[SIGNUP.EMAIL].value;
+    const username = email;
+    const password1 = event.target.elements[SIGNUP.PASSWORD1].value;
+    const password2 = event.target.elements[SIGNUP.PASSWORD2].value;
+    const new_registration_user = { email, username, password1, password2 }
     console.log(new_registration_user);
     
-    // axios.post(REGISTRATION_URL, JSON.stringify(new_registration_user))
-
     axios({
       method: 'post',
       url: REGISTRATION_URL,
@@ -69,9 +73,11 @@ class SignUp extends Component {
       this.setState({ 
         registration_msg : {
           success: true,
-          msg : `You may not log on as ${new_registration_user.email} with your given password.` 
+          msg : `You may now log on as ${new_registration_user.email} with your given password.` 
         }
       })
+      const key = response.data.key;
+      this.createISeeYaUser({ first_name, last_name, key });
     })
     .catch((err) => {
       console.log(err.response.data);
@@ -91,6 +97,18 @@ class SignUp extends Component {
     });
   }
 
+  createISeeYaUser = (data) => {
+    console.log(data);
+    axios({
+      method: 'post',
+      url: CREATE_ISEEYA_USER_URL,
+      data: data
+    })
+    .then((response) => {
+      console.log(response);
+    });
+  }
+
   render() {
     return (
       <div className={`${styles.signup} flex_center`}>
@@ -105,9 +123,16 @@ class SignUp extends Component {
           </div>
           <MessageBox registration_msg={this.state.registration_msg}/>
           <form onSubmit={this.handleSubmit}>
-            <label htmlFor={SIGNUP.EMAIL}><b>Email</b></label>
-            <input type="text" placeholder="Enter Email" name={SIGNUP.EMAIL} required/>
-  
+
+            <label htmlFor={SIGNUP.FIRST_NAME}><b>First Name</b></label>
+            <input type="text" placeholder="First Name" name={SIGNUP.FIRST_NAME} required/>
+
+            <label htmlFor={SIGNUP.LAST_NAME}><b>Last Name</b></label>
+            <input type="text" placeholder="Last Name" name={SIGNUP.LAST_NAME} required/>
+
+            <label htmlFor={SIGNUP.EMAIL}><b>Email </b></label>
+            <input type="text" placeholder="Enter Email (username)" name={SIGNUP.EMAIL} required/>
+
             <label htmlFor={SIGNUP.PASSWORD1}><b>Password</b></label>
             <input type="password" placeholder="Enter Password" name={SIGNUP.PASSWORD1} required/>
   
@@ -118,9 +143,7 @@ class SignUp extends Component {
               {
                 this.state.submitting ?
                 <Dots size={30} /> :
-                (
-                  <input type="submit" value={SIGNUP.SIGNUP}/>
-                )
+                <input type="submit" value={SIGNUP.SIGNUP}/>
               }
             </div>
           </form>
