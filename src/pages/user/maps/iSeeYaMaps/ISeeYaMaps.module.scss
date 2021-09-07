@@ -3,5 +3,16 @@
 }
 
 .my_mapchart {
+  display: flex;
+  margin: 0 auto;
+  width: 85vw;
+  align-items: center;
+  justify-content: center;
   border: 1px solid black;
+  background-color: azure;
+}
+
+.chart_contiainer {
+  height: 100%;
+  padding: 3rem;
 }

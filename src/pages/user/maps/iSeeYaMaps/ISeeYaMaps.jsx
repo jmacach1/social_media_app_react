@@ -66,7 +66,7 @@ const ISeeYaMarker = (props) => {
 const MapChart = ({markers}) => {
   return (
     <ComposableMap>
-      {/* <ZoomableGroup zoom={1}> */}
+      <ZoomableGroup zoom={1.1}>
       <Geographies geography={geoUrl}>
         {({ geographies }) =>
           geographies
@@ -74,14 +74,14 @@ const MapChart = ({markers}) => {
               <Geography
                 key={geo.rsmKey}
                 geography={geo}
-                fill="#EAEAEC"
-                stroke="#D6D6DA"
+                fill="#ffd84a"
+                stroke="#ffe"
               />
             ))
         }
       </Geographies>
         {markers.map(marker => <ISeeYaMarker data={marker} />)}
-      {/* </ZoomableGroup> */}
+      </ZoomableGroup>
     </ComposableMap>
   );
 };

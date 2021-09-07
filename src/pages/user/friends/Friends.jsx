@@ -6,9 +6,6 @@ import FriendCard from './friend_cards/FriendCard';
 class Friends extends Component {
   constructor(props) {
     super(props)
-    this.state = {
-      friends : props.friends
-    }
   }
 
   render() {
@@ -19,7 +16,7 @@ class Friends extends Component {
         </div>
         <div className={styles.main}>
           <div className={styles.cards}>
-            {this.state.friends.map(friend => <FriendCard friend={friend}/>)}
+            {this.props.friends.map(friend => <FriendCard friend={friend}/>)}
           </div>
         </div>
       </div>
@@ -28,10 +25,13 @@ class Friends extends Component {
 }
 
 const mapStateToProps = state => {
-  if (state.login.iseeya_user) {
-    return state.login.iseeya_user.iseeya_maps.filter(my_map => my_map.name === "Friends");
+  const friendState = { 
+    friends : [] 
   }
-  return [];
+  if (state.login.iseeya_user && state.login.iseeya_user.profile) {
+    friendState.friends = state.login.iseeya_user.profile.friends 
+  }
+  return friendState;
 };
 
 export default connect(mapStateToProps)(Friends);

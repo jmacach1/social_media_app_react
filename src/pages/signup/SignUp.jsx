@@ -77,7 +77,8 @@ class SignUp extends Component {
         }
       })
       const key = response.data.key;
-      this.createISeeYaUser({ first_name, last_name, key });
+      const location_id = 7;
+      this.createISeeYaUser({ first_name, last_name, key, location_id });
     })
     .catch((err) => {
       console.log(err.response.data);
@@ -93,6 +94,8 @@ class SignUp extends Component {
       event.target.elements[SIGNUP.EMAIL].value = "";
       event.target.elements[SIGNUP.PASSWORD1].value = "";
       event.target.elements[SIGNUP.PASSWORD2].value = "";
+      event.target.elements[SIGNUP.FIRST_NAME].value = "";
+      event.target.elements[SIGNUP.LAST_NAME].value = "";
       this.setState({ submitting : false })
     });
   }
