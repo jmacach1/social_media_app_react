@@ -3,14 +3,26 @@ import styles from './UserPage.module.scss';
 import Navigation, 
   { PROFILE, FRIENDS, SETTINGS, MAPS } 
 from 'pages/user/Navigation/Navigation';
-import { useRouteMatch, Switch, Route } from "react-router-dom";
+import { useHistory, useRouteMatch, Switch, Route } from "react-router-dom";
+import { useSelector } from 'react-redux';
 import Home from 'pages/user/home/Home';
 import Profile from 'pages/user/profile/Profile';
 import Friends from 'pages/user/friends/Friends';
 import Maps from 'pages/user/maps/Maps';
 
 export default function UserPage(props) {
+  const history = useHistory();
   const { path } = useRouteMatch();
+  const loginState = useSelector((state) => state.login)
+  console.log("loginState", loginState);
+  if (!loginState.iseeya_user) {
+    history.push("/");
+    return (
+      <div>
+        <h1>No User Information</h1>
+      </div>
+    )
+  }
 
   return (
     <div className={styles.user_page}>

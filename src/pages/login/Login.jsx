@@ -133,10 +133,10 @@ class Login extends Component {
           <MessageBox login_msg={this.state.login_msg}/>
           <form onSubmit={this.onSubmitLogin}>
             <div>
-              <input type="text" name="username" placeholder="Username"/>
+              <input type="email" name="username" placeholder="Username"/>
             </div>
             <div>
-              <input type="text" name="password" placeholder="Password"/>
+              <input type="password" name="password" placeholder="Password"/>
             </div>
             <div className={styles.controls}>
               {

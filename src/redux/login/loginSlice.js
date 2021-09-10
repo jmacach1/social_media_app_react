@@ -1,13 +1,13 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 
-const annie = require('sample_data/annie.json');
-const initialState = {
-  iseeya_user : annie
-}
+// const annie = require('sample_data/annie.json');
 // const initialState = {
-//   iseeya_user: null
+//   iseeya_user : annie
 // }
+const initialState = {
+  iseeya_user: null
+}
 
 export const loginSlice = createSlice({
   name : 'login',
@@ -17,7 +17,7 @@ export const loginSlice = createSlice({
       state.iseeya_user = action.payload;
     },
     logoutUser: (state) => {
-      state = initialState
+      state.iseeya_user = null;
     }
   },
 })

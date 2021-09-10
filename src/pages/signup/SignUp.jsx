@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Dots } from "react-activity";
 import "react-activity/dist/Dots.css";
 import axios from 'axios';
+import Select from 'react-select';
 import styles from './SignUp.module.scss';
 import BackButton from 'buttons/BackButton';
 
@@ -12,7 +13,8 @@ const SIGNUP = {
   USERNAME : "username",
   EMAIL : "email",
   PASSWORD1 : "password1",
-  PASSWORD2: "password2"
+  PASSWORD2: "password2",
+  LOCATION : "location"
 }
 
 const LOCALHOST = "http://127.0.0.1:8000/";
@@ -21,6 +23,8 @@ const REGISTRATION_URL = LOCALHOST + REGISTRATION_ENDPOINT;
 const API = "api/";
 const ISEEYA_USER = "iseeya_user"
 const CREATE_ISEEYA_USER_URL = LOCALHOST + API + ISEEYA_USER;
+
+const GET_LOCATIONS_URL = "http://127.0.0.1:8000/api/location"; 
 
 const REGISTRATION_SUCCESS = "User was created";
 const REGISTRATION_FAILURE = "User not created";
@@ -46,8 +50,31 @@ class SignUp extends Component {
       registration_msg : {
         success: "",
         msg: ""
-      }
+      },
+      locationOptions: []
     }
+  }
+  
+  componentDidMount() {
+    this.getLocations();
+  }
+
+  getLocations = () => {
+    axios.get(GET_LOCATIONS_URL)
+    .then((response) => {
+      const locations = response.data;
+      const locationOptions = locations.map(
+        ({pk, city, country}) => ({ 
+          value: pk, 
+          label: `${city}, ${country}` 
+        }
+      ));
+      this.setState({ locationOptions });
+    })
+    .catch((error) => {
+      console.log(error);
+    })
+
   }
 
   handleSubmit = (event) => {
@@ -60,9 +87,12 @@ class SignUp extends Component {
     const username = email;
     const password1 = event.target.elements[SIGNUP.PASSWORD1].value;
     const password2 = event.target.elements[SIGNUP.PASSWORD2].value;
+    const location_id = event.target.elements[SIGNUP.LOCATION].value;
+
     const new_registration_user = { email, username, password1, password2 }
     console.log(new_registration_user);
     
+    // Create New User
     axios({
       method: 'post',
       url: REGISTRATION_URL,
@@ -77,7 +107,6 @@ class SignUp extends Component {
         }
       })
       const key = response.data.key;
-      const location_id = 7;
       this.createISeeYaUser({ first_name, last_name, key, location_id });
     })
     .catch((err) => {
@@ -141,7 +170,18 @@ class SignUp extends Component {
   
             <label htmlFor={SIGNUP.PASSWORD2}><b>Repeat Password</b></label>
             <input type="password" placeholder="Repeat Password" name={SIGNUP.PASSWORD2} required/>
-            
+
+            <label htmlFor={SIGNUP.LOCATION}><b>Location</b></label>
+
+            <Select
+              name="location"
+              classNamePrefix="select"
+              defaultValue={this.state.locationOptions[0]}
+              isClearable={true}
+              isSearchable={true}
+              options={this.state.locationOptions}
+            />
+                        
             <div className={styles.controls}>
               {
                 this.state.submitting ?

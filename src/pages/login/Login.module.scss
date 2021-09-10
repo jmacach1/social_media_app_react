@@ -4,8 +4,11 @@
 
 .login_box {
   padding: 2rem;
-  max-width: 600px;
+  min-width: 400px;
+  max-width: 800px;
   background-color: rgba(119, 191, 250, .95);
+  border-radius: 16px;
+  font-weight: 300;
 }
 
 .controls {

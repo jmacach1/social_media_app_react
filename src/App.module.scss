@@ -18,8 +18,6 @@
   flex: 1;
   margin: 1rem;
   background: rgb(2,0,36);
-  // background-image: linear-gradient(90deg, rgba(2,0,36,.2) 0%, rgba(9,9,121,.2) 36%, rgba(0,212,255,.2) 100%),
-  //   url('https://upload.wikimedia.org/wikipedia/commons/e/ec/World_map_%28blue_dots%29.svg');
   background-image: url('https://upload.wikimedia.org/wikipedia/commons/e/ec/World_map_%28blue_dots%29.svg');
   background-size: cover;
   background-position: center;
@@ -29,11 +27,12 @@
  .color_movement {
   width:100%;
   height: 100%;
-  background: linear-gradient(45deg,#f17c5838, #e945843f, #24aadb3b , #27dbb138,#ffdc1836, #ff380623);
+  background: linear-gradient(45deg,#f17c5854, #e9458465, #24aadb71 , #27dbb175,#ffdc1877, #ff380671);
   background-size: 600% 100%;
   animation: gradient 16s linear infinite;
   animation-direction: alternate;
 }
+
 @keyframes gradient {
   0% {background-position: 0%}
   100% {background-position: 100%}
