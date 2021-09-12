@@ -82,7 +82,7 @@ const mapStateToProps = state => {
     email: "email@address.com",
     first_name :  "First",
     last_name : "Last", 
-    profile_img_src: "https://robohash.org/default"
+    profile_img_src: "https://robohash.org/default",
   }
 };
 

@@ -20,18 +20,21 @@ class Maps extends Component {
     if (this.props.iseeya_maps) {
       return (
         <div className={styles.maps}>
-          <div className={styles.title}>
-            <h1>My Maps</h1>
+          <div className={styles.map_box}>
+            <h2>My Maps</h2>
+            <div className={styles.map_container}>
               <select 
+                className={styles.map_select}
                 id="my_maps" 
                 onChange={this.changeSelectedMap} 
                 value={this.state.selectedMapIndex}
-              >
+                >
                 {this.props.iseeya_maps.map((myMap, index) => 
                   <option value={index}>{myMap.name}</option>
-                )}
+                  )}
               </select>
-            <ISeeYaMaps myMap={this.props.iseeya_maps[this.state.selectedMapIndex]}/>
+              <ISeeYaMaps myMap={this.props.iseeya_maps[this.state.selectedMapIndex]}/>
+            </div>
           </div>
         </div>
       )

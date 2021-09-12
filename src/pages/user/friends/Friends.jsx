@@ -12,7 +12,7 @@ class Friends extends Component {
     return (
       <div className={styles.friends}>
         <div className={styles.title}>
-          <h1>My Friends</h1>
+          <h2>My Friends</h2>
         </div>
         <div className={styles.main}>
           <div className={styles.cards}>

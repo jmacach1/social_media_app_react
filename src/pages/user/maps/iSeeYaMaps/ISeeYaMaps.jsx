@@ -28,6 +28,14 @@ const ISeeYaMarker = (props) => {
         <clipPath id="clipCircle">
           <circle r={PROFILE_MARKER_RADIUS} cx="0" cy="0"/>
         </clipPath>
+        <rect 
+          fill="#fff"
+          y={-PROFILE_MARKER_RADIUS}
+          x={-PROFILE_MARKER_RADIUS}
+          width={PROFILE_PIC_DIAMTER} 
+          height={PROFILE_PIC_DIAMTER}
+          clip-path="url(#clipCircle)"
+        />
         <image
           className={styles.image_marker}
           y={-PROFILE_MARKER_RADIUS}
@@ -37,6 +45,7 @@ const ISeeYaMarker = (props) => {
           width={PROFILE_PIC_DIAMTER} 
           height={PROFILE_PIC_DIAMTER}
           clip-path="url(#clipCircle)"
+          stroke="#000"
         />
         <text
           textAnchor="middle"
@@ -66,7 +75,7 @@ const ISeeYaMarker = (props) => {
 const MapChart = ({markers}) => {
   return (
     <ComposableMap>
-      <ZoomableGroup zoom={1.1}>
+      <ZoomableGroup zoom={1}>
       <Geographies geography={geoUrl}>
         {({ geographies }) =>
           geographies
@@ -74,8 +83,8 @@ const MapChart = ({markers}) => {
               <Geography
                 key={geo.rsmKey}
                 geography={geo}
-                fill="#ffd84a"
-                stroke="#ffe"
+                fill="#13284a"
+                stroke="#f0e"
               />
             ))
         }
@@ -88,13 +97,8 @@ const MapChart = ({markers}) => {
 
 const ISeeYaMaps = ({ myMap }) => {
   return (
-    <div>
-      <div>
-        <h1>{myMap.name}</h1>
-      </div>
-      <div className={styles.my_mapchart}>
-        <MapChart markers={myMap.markers}/>
-      </div>
+    <div className={styles.my_mapchart}>
+      <MapChart markers={myMap.markers}/>
     </div>
   )
 };
